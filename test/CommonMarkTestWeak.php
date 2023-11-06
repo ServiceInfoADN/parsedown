@@ -15,9 +15,9 @@ require_once(__DIR__ . '/CommonMarkTestStrict.php');
  */
 class CommonMarkTestWeak extends CommonMarkTestStrict
 {
-    protected $textLevelElementRegex;
+    protected string $textLevelElementRegex;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -45,19 +45,17 @@ class CommonMarkTestWeak extends CommonMarkTestStrict
         $this->assertEquals($expectedHtml, $actualHtml);
     }
 
-    protected function cleanupHtml($markup)
+    protected function cleanupHtml($markup): array|string|null
     {
         // invisible whitespaces at the beginning and end of block elements
         // however, whitespaces at the beginning of <pre> elements do matter
-        $markup = preg_replace(
-            array(
+        return preg_replace(
+            [
                 '/(<(?!(?:' . $this->textLevelElementRegex . '|\bpre\b))\w+\b[^>]*>(?:<' . $this->textLevelElementRegex . '[^>]*>)*)\s+/s',
                 '/\s+((?:<\/' . $this->textLevelElementRegex . '>)*<\/(?!' . $this->textLevelElementRegex . ')\w+\b>)/s'
-            ),
+            ],
             '$1',
             $markup
         );
-
-        return $markup;
     }
 }

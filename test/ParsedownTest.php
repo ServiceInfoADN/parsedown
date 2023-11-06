@@ -13,8 +13,8 @@ class ParsedownTest extends TestCase
         parent::__construct($name, $data, $dataName);
     }
 
-    private $dirs;
-    protected $Parsedown;
+    private array $dirs;
+    protected TestParsedown $Parsedown;
 
     /**
      * @return array
@@ -41,7 +41,7 @@ class ParsedownTest extends TestCase
      * @param $test
      * @param $dir
      */
-    function test_($test, $dir)
+    public function test_($test, $dir)
     {
         $markdown = file_get_contents($dir . $test . '.md');
 
@@ -50,15 +50,15 @@ class ParsedownTest extends TestCase
         $expectedMarkup = str_replace("\r\n", "\n", $expectedMarkup);
         $expectedMarkup = str_replace("\r", "\n", $expectedMarkup);
 
-        $this->Parsedown->setSafeMode(substr($test, 0, 3) === 'xss');
-        $this->Parsedown->setStrictMode(substr($test, 0, 6) === 'strict');
+        $this->Parsedown->setSafeMode(str_starts_with($test, 'xss'));
+        $this->Parsedown->setStrictMode(str_starts_with($test, 'strict'));
 
         $actualMarkup = $this->Parsedown->text($markdown);
 
         $this->assertEquals($expectedMarkup, $actualMarkup);
     }
 
-    function testRawHtml()
+    public function testRawHtml()
     {
         $markdown = "```php\nfoobar\n```";
         $expectedMarkup = '<pre><code class="language-php"><p>foobar</p></code></pre>';
@@ -75,7 +75,7 @@ class ParsedownTest extends TestCase
         $this->assertEquals($expectedSafeMarkup, $actualSafeMarkup);
     }
 
-    function testTrustDelegatedRawHtml()
+    public function testTrustDelegatedRawHtml()
     {
         $markdown = "```php\nfoobar\n```";
         $expectedMarkup = '<pre><code class="language-php"><p>foobar</p></code></pre>';
@@ -92,7 +92,7 @@ class ParsedownTest extends TestCase
         $this->assertEquals($expectedSafeMarkup, $actualSafeMarkup);
     }
 
-    function data()
+    public function data(): array
     {
         $data = array();
 

@@ -1,36 +1,13 @@
-<!-- ![Parsedown](https://i.imgur.com/yE8afYV.png) -->
 
-<p align="center"><img alt="Parsedown" src="https://i.imgur.com/fKVY6Kz.png" width="240" /></p>
-
-<h1>Parsedown</h1>
-
-[![Build Status](https://travis-ci.org/erusev/parsedown.svg)](https://travis-ci.org/erusev/parsedown)
-[![Total Downloads](https://poser.pugx.org/erusev/parsedown/d/total.svg)](https://packagist.org/packages/erusev/parsedown)
-[![Version](https://poser.pugx.org/erusev/parsedown/v/stable.svg)](https://packagist.org/packages/erusev/parsedown)
-[![License](https://poser.pugx.org/erusev/parsedown/license.svg)](https://packagist.org/packages/erusev/parsedown)
-
-Better Markdown Parser in PHP - <a href="http://parsedown.org/demo">Demo</a>.
-
-## Features
-
-* One File
-* No Dependencies
-* [Super Fast](http://parsedown.org/speed)
-* Extensible
-* [GitHub flavored](https://github.github.com/gfm)
-* [Tested](http://parsedown.org/tests/) in 5.3 to 7.3
-* [Markdown Extra extension](https://github.com/erusev/parsedown-extra)
 
 ## Installation
 
 Install the [composer package]:
 
-    composer require erusev/parsedown
+    composer require serviceinfoadn/parsedown
 
 Or download the [latest release] and include `Parsedown.php`
 
-[composer package]: https://packagist.org/packages/erusev/parsedown "The Parsedown package on packagist.org"
-[latest release]: https://github.com/erusev/parsedown/releases/latest "The latest release of Parsedown"
 
 ## Example
 

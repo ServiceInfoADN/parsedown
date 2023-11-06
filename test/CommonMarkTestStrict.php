@@ -1,17 +1,12 @@
 <?php
 
-/**
- * Test Parsedown against the CommonMark spec
- *
- * @link http://commonmark.org/ CommonMark
- */
 class CommonMarkTestStrict extends PHPUnit_Framework_TestCase
 {
     const SPEC_URL = 'https://raw.githubusercontent.com/jgm/CommonMark/master/spec.txt';
 
     protected $parsedown;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->parsedown = new TestParsedown();
         $this->parsedown->setUrlsLinked(false);
@@ -33,7 +28,7 @@ class CommonMarkTestStrict extends PHPUnit_Framework_TestCase
     /**
      * @return array
      */
-    public function data()
+    public function data(): array
     {
         $spec = file_get_contents(self::SPEC_URL);
         if ($spec === false) {
