@@ -5,8 +5,8 @@ class Parsedown
     //==============================
     //props
     //==============================
-    protected bool $breaksEnabled;
-    protected bool $markupEscaped;
+    protected bool $breaksEnabled = false;
+    protected bool $markupEscaped = false;
     protected bool $urlsLinked = true;
     protected bool $safeMode;
     protected bool $strictMode;
